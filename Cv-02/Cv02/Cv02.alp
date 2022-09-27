@@ -113,7 +113,7 @@
 				<Connector>
 					<Id>1664276381783</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>270</X><Y>60</Y>
+					<X>371.877</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -140,13 +140,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-50</X><Y>0</Y></Point>
+						<Point><X>-88</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1664276413604</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>-97.601</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -173,13 +173,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>440</X><Y>60</Y></Point>
-						<Point><X>380</X><Y>60</Y></Point>
+						<Point><X>659</X><Y>60</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1664276413605</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>370</X><Y>60</Y>
+					<X>545.755</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -206,13 +206,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-60</X><Y>0</Y></Point>
+						<Point><X>-106</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1664276442201</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>-97.601</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -239,13 +239,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>210</X><Y>60</Y></Point>
-						<Point><X>150</X><Y>60</Y></Point>
+						<Point><X>258</X><Y>60</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1664276442202</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>-97.601</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -272,13 +272,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>140</X><Y>60</Y></Point>
-						<Point><X>100</X><Y>60</Y></Point>
+						<Point><X>172</X><Y>60</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1664276459949</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>600</X><Y>60</Y>
+					<X>945.68</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -305,13 +305,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-40</X><Y>0</Y></Point>
+						<Point><X>-71</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1664276459950</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>550</X><Y>60</Y>
+					<X>858.739</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -338,7 +338,7 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-70</X><Y>0</Y></Point>
+						<Point><X>-124</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -368,7 +368,7 @@
 				<EmbeddedObject>
 					<Id>1664274539541</Id>
 					<Name><![CDATA[sourceArrival]]></Name>
-					<X>70</X><Y>50</Y>
+					<X>24.117</X><Y>50</Y>
 					<Label><X>-5</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -567,7 +567,7 @@
 				<EmbeddedObject>
 					<Id>1664275094792</Id>
 					<Name><![CDATA[delaySell]]></Name>
-					<X>440</X><Y>40</Y>
+					<X>667.471</X><Y>40</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -667,7 +667,7 @@
 				<EmbeddedObject>
 					<Id>1664275135012</Id>
 					<Name><![CDATA[sinkCustomer]]></Name>
-					<X>600</X><Y>50</Y>
+					<X>945.68</X><Y>50</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -733,7 +733,7 @@
 				<EmbeddedObject>
 					<Id>1664275306266</Id>
 					<Name><![CDATA[queueWaiting]]></Name>
-					<X>270</X><Y>40</Y>
+					<X>371.877</X><Y>40</Y>
 					<Label><X>-5</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -847,7 +847,7 @@
 				<EmbeddedObject>
 					<Id>1664276375652</Id>
 					<Name><![CDATA[timeMeasureStartWaiting]]></Name>
-					<X>210</X><Y>40</Y>
+					<X>267.547</X><Y>40</Y>
 					<Label><X>-50</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -910,7 +910,7 @@
 				<EmbeddedObject>
 					<Id>1664276395896</Id>
 					<Name><![CDATA[timeMeasureEndWaiting]]></Name>
-					<X>350</X><Y>40</Y>
+					<X>510.979</X><Y>40</Y>
 					<Label><X>-35</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -982,7 +982,7 @@
 				<EmbeddedObject>
 					<Id>1664276439369</Id>
 					<Name><![CDATA[timeMeasureStartInModel]]></Name>
-					<X>140</X><Y>40</Y>
+					<X>145.832</X><Y>40</Y>
 					<Label><X>-50</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1045,7 +1045,7 @@
 				<EmbeddedObject>
 					<Id>1664276458523</Id>
 					<Name><![CDATA[timeMeasureEndInModel]]></Name>
-					<X>530</X><Y>40</Y>
+					<X>823.965</X><Y>40</Y>
 					<Label><X>-35</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1250,6 +1250,70 @@
 						<RelativeWidth>0.8</RelativeWidth>
 					</Bars>
     			</BarChart>
+    			<Histogram>
+					<Id>1664276827490</Id>
+					<Name><![CDATA[histogramWaitingTime]]></Name>
+					<X>40</X><Y>620</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1664352000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>400</Width>
+					<Height>300</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>320</Width>
+						<Height>210</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<ShowPDF>true</ShowPDF>
+					<ShowCDF>false</ShowCDF>
+					<ShowMean>false</ShowMean>
+					<Bars>
+						<Direction>UP</Direction>
+						<RelativeWidth>0.8</RelativeWidth>
+					</Bars>
+					<HistogramDataExpression>
+					<Id>0</Id>
+					<Expression><![CDATA[timeMeasureEndWaiting.distribution]]></Expression>
+						<ColorPDF>-16728065</ColorPDF>
+						<ColorCDF>-60269</ColorCDF>
+						<ColorLowPercent>-3137392</ColorLowPercent>
+						<ColorHighPercent>-23296</ColorHighPercent>
+						<ColorMean>-4343957</ColorMean>
+						<LineWidth>1</LineWidth>						
+						<Title><![CDATA[Histogram dlžky časov čakania]]></Title>							
+					</HistogramDataExpression>
+    			</Histogram>
 			</Presentation>
 
 				</Level>
