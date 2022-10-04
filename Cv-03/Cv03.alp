@@ -1418,7 +1418,6 @@ statQueueLength.add(serviceSell.queueSize(), time());]]></Code>
     			<BarChart>
 					<Id>1664275955614</Id>
 					<Name><![CDATA[barChartSellUtilisation]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>150</X><Y>300</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -1463,7 +1462,7 @@ statQueueLength.add(serviceSell.queueSize(), time());]]></Code>
 					<ShowLegend>true</ShowLegend>
 					<DataItem>
 					<Id>0</Id>
-					<Expression><![CDATA[delaySell.statsUtilization.mean()*100]]></Expression>
+					<Expression><![CDATA[resourcePoolPersonell.utilization()*100]]></Expression>
 					<Color>-65536</Color>
 					<Expression2Flag>true</Expression2Flag>
 						<Title><![CDATA[Vyťaženie pracovníčky]]></Title>
