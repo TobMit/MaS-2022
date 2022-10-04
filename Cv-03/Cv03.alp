@@ -362,6 +362,48 @@
 					</RecurrenceCode>
 					<Discrete>false</Discrete>
 				</Statistics>
+    			<Statistics>
+					<Id>1664882536635</Id>
+					<Name><![CDATA[statWaitingTimeDisbility]]></Name>
+					<X>680</X><Y>110</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1664956800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1664882554207</Id>
+					<Name><![CDATA[statWaitingTieOthers]]></Name>
+					<X>680</X><Y>150</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1664956800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
 			</AnalysisData>
 			<AgentLinks>
 				<AgentLink>
@@ -969,6 +1011,9 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[resourceSelectionMode]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[self.RESOURCE_SELECTION_NEAREST]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[resourceRating]]></Name>
@@ -998,7 +1043,8 @@
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[agent.parWaitingTimeStart = time();
-statQueueLength.add(self.queueSize(), time());]]></Code>
+statQueueLength.add(self.queueSize(), time());
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1014,7 +1060,12 @@ statQueueLength.add(self.queueSize(), time());]]></Code>
 							<Name><![CDATA[onEnterDelay]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[hdWaitingTime.add(time() - agent.parWaitingTimeStart);
-statQueueLength.add(serviceSell.queueSize(), time());]]></Code>
+statQueueLength.add(serviceSell.queueSize(), time());
+if (agent.parDisability == true) {
+statWaitingTimeDisbility.add(time() - agent.parWaitingTimeStart);
+} else {
+statWaitingTieOthers.add(time() - agent.parWaitingTimeStart);
+};]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
