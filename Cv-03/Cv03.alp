@@ -341,6 +341,27 @@
 					<HighPercent>10</HighPercent>
 					<Title><![CDATA[]]></Title>
 				</HistogramData>
+    			<Statistics>
+					<Id>1664881925378</Id>
+					<Name><![CDATA[statQueueLength]]></Name>
+					<X>310</X><Y>150</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1664956800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>false</Discrete>
+				</Statistics>
 			</AnalysisData>
 			<AgentLinks>
 				<AgentLink>
@@ -976,7 +997,8 @@
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[agent.parWaitingTimeStart = time();]]></Code>
+								<Code><![CDATA[agent.parWaitingTimeStart = time();
+statQueueLength.add(self.queueSize(), time());]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -991,7 +1013,8 @@
 						<Parameter>
 							<Name><![CDATA[onEnterDelay]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[hdWaitingTime.add(time() - agent.parWaitingTimeStart);]]></Code>
+								<Code><![CDATA[hdWaitingTime.add(time() - agent.parWaitingTimeStart);
+statQueueLength.add(serviceSell.queueSize(), time());]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1335,8 +1358,7 @@
     			<BarChart>
 					<Id>1664275705417</Id>
 					<Name><![CDATA[chartAverageQueue]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>90</X><Y>110</Y>
+					<X>20</X><Y>120</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1380,13 +1402,13 @@
 					<ShowLegend>true</ShowLegend>
 					<DataItem>
 					<Id>0</Id>
-					<Expression><![CDATA[queueWaiting.statsSize.mean()]]></Expression>
+					<Expression><![CDATA[statQueueLength.mean()]]></Expression>
 					<Color>-16776961</Color>
 					<Expression2Flag>true</Expression2Flag>
 						<Title><![CDATA[Priemerný počet čakajúcich.]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
-					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
+					<ScaleToExpression><![CDATA[3]]></ScaleToExpression>
 					<ScaleType>FIXED</ScaleType>
 					<Bars>
 						<Direction>RIGHT</Direction>
