@@ -7,7 +7,7 @@
 <AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.0.202208091057" AlpVersion="8.7.5">
 <Model>
 	<Id>1664274480594</Id>
-	<Name><![CDATA[Cv03]]></Name>
+	<Name><![CDATA[Cv04]]></Name>
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[cv02]]></JavaPackageName>
 	<ModelTimeUnit><![CDATA[Second]]></ModelTimeUnit>
@@ -569,7 +569,10 @@
 											<Name><![CDATA[parDisability]]></Name>
 										</Parameter>
 										<Parameter>
-											<Name><![CDATA[parameter]]></Name>
+											<Name><![CDATA[parWaitingTimeStart]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[parSlovak]]></Name>
 										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
@@ -1814,6 +1817,30 @@ statWaitingTieOthers.add(time() - agent.parWaitingTimeStart);
 						<ParameterEditor>
 							<Id>1664881352913</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1665483650007</Id>
+					<Name><![CDATA[parSlovak]]></Name>
+					<X>50</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[boolean]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[uniform() < 0.6 ? true : false]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1665483650005</Id>
+							<EditorContolType>CHECK_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
 							<DelimeterType>NO_DELIMETER</DelimeterType>
