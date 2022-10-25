@@ -5376,13 +5376,15 @@ statWaitingTieOthers.add(time() - agent.parWaitingTimeStart);
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
 			<AfterSimulationRunCode><![CDATA[statAverateWaitingTime.add(root.hdWaitingTime.mean());
-varLeftWaitingTime = statAverageWaitingTime.mean() - (1.6449 * statAverageWaitingTime.deviation()/sqrt(statAverageWaitingTime.count()));
-varRightWaitingTime = statAverageWaitingTime.mean() - (1.6449 * statAverageWaitingTime.deviation()/sqrt(statAverageWaitingTime.count()));
+//varLeftWaitingTime = statAverageWaitingTime.mean() - (1.6449 * statAverageWaitingTime.deviation()/sqrt(statAverageWaitingTime.count()));
+//varRightWaitingTime = statAverageWaitingTime.mean() - (1.6449 * statAverageWaitingTime.deviation()/sqrt(statAverageWaitingTime.count()));
 
 statAverateWaitingTimeDisbility.add(root.statWaitingTimeDisbility.mean());
 statAverateWaitingTimeOther.add(root.statWaitingTieOthers.mean());
 statAverateQueueLength.add(root.statQueueLength.mean());
 statMaximumQueueLength.add(root.statQueueLength.max());
+
+tfExportWaitingTime.println(statAverateWaitingTime.count() + " " + root.hdWaitingTime.mean());
 
 dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.mean());]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
@@ -5415,6 +5417,26 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
 					</Properties>
 				</Variable>
 			</Variables>
+			<Connectivity>
+				<TextFile>
+					<Id>1666696557142</Id>
+					<Name><![CDATA[tfExportWaitingTime]]></Name>
+					<X>220</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<FileType>FILE</FileType>
+					<Url><![CDATA[]]></Url>
+					<ResourceReference>
+						<PackageName><![CDATA[cv02]]></PackageName>
+						<ClassName><![CDATA[text.txt]]></ClassName>
+					</ResourceReference>
+					<FileMode>WRITE</FileMode>
+					<CharsetName>null</CharsetName>
+					<Separators></Separators>
+				</TextFile>
+			</Connectivity>
 			<AnalysisData>
     			<Statistics>
 					<Id>1664883093471</Id>
@@ -5710,6 +5732,10 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
 	<ModelResources>
 		<Resource>
 			<Path><![CDATA[image.png]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[text.txt]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>
