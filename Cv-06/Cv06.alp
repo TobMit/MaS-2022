@@ -5375,9 +5375,11 @@ statWaitingTieOthers.add(time() - agent.parWaitingTimeStart);
 			<MaximumMemory>512</MaximumMemory>
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
+			<BeforeEachExperimentRunCode><![CDATA[getDefaultRandomGenerator().setSeed(getCurrentReplication());
+getDefaultRandomGenerator().setSeed(uniform_discr(0, Integer.MAX_VALUE));]]></BeforeEachExperimentRunCode>
 			<AfterSimulationRunCode><![CDATA[statAverateWaitingTime.add(root.hdWaitingTime.mean());
-//varLeftWaitingTime = statAverageWaitingTime.mean() - (1.6449 * statAverageWaitingTime.deviation()/sqrt(statAverageWaitingTime.count()));
-//varRightWaitingTime = statAverageWaitingTime.mean() - (1.6449 * statAverageWaitingTime.deviation()/sqrt(statAverageWaitingTime.count()));
+varLeftWaitingTime = statAverateWaitingTime.mean() - (1.6449 * statAverateWaitingTime.deviation()/sqrt(statAverateWaitingTime.count()));
+varRightWaitingTime = statAverateWaitingTime.mean() + (1.6449 * statAverateWaitingTime.deviation()/sqrt(statAverateWaitingTime.count()));
 
 statAverateWaitingTimeDisbility.add(root.statWaitingTimeDisbility.mean());
 statAverateWaitingTimeOther.add(root.statWaitingTieOthers.mean());
@@ -5386,7 +5388,11 @@ statMaximumQueueLength.add(root.statQueueLength.max());
 
 tfExportWaitingTime.println(statAverateWaitingTime.count() + " " + root.hdWaitingTime.mean());
 
-dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.mean());]]></AfterSimulationRunCode>
+dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.mean());
+
+if (statAverateWaitingTime.count() > 30) {
+dsLeftWaitingTime.add(statAverateWaitingTime.count(), varLeftWaitingTime);
+dsRightWaitingTime.add(statAverateWaitingTime.count(), varRightWaitingTime);}]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
@@ -5565,6 +5571,50 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
 					<FreezeXAxis>false</FreezeXAxis>
 					<SamplesToKeep>10000</SamplesToKeep>
 				</DataSet>
+    			<DataSet>
+					<Id>1666697235477</Id>
+					<Name><![CDATA[dsRightWaitingTime]]></Name>
+					<X>450</X><Y>150</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1666771200000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>false</FreezeXAxis>
+					<SamplesToKeep>500</SamplesToKeep>
+				</DataSet>
+    			<DataSet>
+					<Id>1666697247414</Id>
+					<Name><![CDATA[dsLeftWaitingTime]]></Name>
+					<X>450</X><Y>190</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1666771200000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>false</FreezeXAxis>
+					<SamplesToKeep>500</SamplesToKeep>
+				</DataSet>
 			</AnalysisData>
 
 			<Presentation>
@@ -5636,7 +5686,7 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
     			<Plot>
 					<Id>1664883699589</Id>
 					<Name><![CDATA[plot]]></Name>
-					<X>390</X><Y>180</Y>
+					<X>370</X><Y>220</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5654,15 +5704,15 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
 						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>260</Width>
-					<Height>210</Height>
+					<Width>530</Width>
+					<Height>410</Height>
 					<BackgroundColor/>
 					<BorderColor/>
 					<ChartArea>
 						<XOffset>50</XOffset>
 						<YOffset>30</YOffset>
-						<Width>180</Width>
-						<Height>120</Height>
+						<Width>450</Width>
+						<Height>280</Height>
 						<BackgroundColor>-1</BackgroundColor>
 						<BorderColor>-16777216</BorderColor>
 						<GridColor>-12566464</GridColor>
@@ -5670,7 +5720,7 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
 					<Legend>
 						<Place>SOUTH</Place>
 						<TextColor>-16777216</TextColor>
-						<Size>30</Size>
+						<Size>70</Size>
 					</Legend>
 					<Labels>
 						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
@@ -5679,15 +5729,37 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
 					</Labels>
 					<ShowLegend>true</ShowLegend>
 					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
-					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
-					<VerScaleType>AUTO</VerScaleType>
+					<VerScaleToExpression><![CDATA[150]]></VerScaleToExpression>
+					<VerScaleType>FIXED</VerScaleType>
 					<DrawLine>true</DrawLine>
 					<Interpolation>LINEAR</Interpolation>
 					<DatasetExpression>  
 						<Title><![CDATA[Ustalovanie priemerného času čakania]]></Title>
 					<Id>0</Id>
 					<Expression><![CDATA[dsAverageWaitingTime]]></Expression>
-					<Color>-6632142</Color>
+					<Color>-16744448</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Interval - min]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[dsLeftWaitingTime]]></Expression>
+					<Color>-14774017</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Interval - max]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[dsRightWaitingTime]]></Expression>
+					<Color>-65536</Color>
 					<Expression2><![CDATA[0]]></Expression2>
 					<Expression2Flag>false</Expression2Flag>
 						<PointStyle>CIRCLE</PointStyle>
@@ -5696,8 +5768,8 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
 					</DatasetExpression>
 					<SamplesToKeep>500</SamplesToKeep>
 					<HorScaleFromExpression><![CDATA[0]]></HorScaleFromExpression>
-					<HorScaleToExpression><![CDATA[1]]></HorScaleToExpression>
-					<HorScaleType>AUTO</HorScaleType>
+					<HorScaleToExpression><![CDATA[500]]></HorScaleToExpression>
+					<HorScaleType>FIXED</HorScaleType>
     			</Plot>
 			</Presentation>
 
