@@ -5376,6 +5376,9 @@ statWaitingTieOthers.add(time() - agent.parWaitingTimeStart);
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
 			<AfterSimulationRunCode><![CDATA[statAverateWaitingTime.add(root.hdWaitingTime.mean());
+varLeftWaitingTime = statAverageWaitingTime.mean() - (1.6449 * statAverageWaitingTime.deviation()/sqrt(statAverageWaitingTime.count()));
+varRightWaitingTime = statAverageWaitingTime.mean() - (1.6449 * statAverageWaitingTime.deviation()/sqrt(statAverageWaitingTime.count()));
+
 statAverateWaitingTimeDisbility.add(root.statWaitingTimeDisbility.mean());
 statAverateWaitingTimeOther.add(root.statWaitingTieOthers.mean());
 statAverateQueueLength.add(root.statQueueLength.mean());
@@ -5386,6 +5389,32 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
 			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1666695233701</Id>
+					<Name><![CDATA[varLeftWaitingTime]]></Name>
+					<X>70</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1666695244461</Id>
+					<Name><![CDATA[varRightWaitingTime]]></Name>
+					<X>70</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+			</Variables>
 			<AnalysisData>
     			<Statistics>
 					<Id>1664883093471</Id>
@@ -5411,7 +5440,7 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
     			<Statistics>
 					<Id>1664883098428</Id>
 					<Name><![CDATA[statAverateWaitingTimeDisbility]]></Name>
-					<X>70</X><Y>170</Y>
+					<X>70</X><Y>230</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5432,7 +5461,7 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
     			<Statistics>
 					<Id>1664883101622</Id>
 					<Name><![CDATA[statAverateWaitingTimeOther]]></Name>
-					<X>70</X><Y>200</Y>
+					<X>70</X><Y>260</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5453,7 +5482,7 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
     			<Statistics>
 					<Id>1664883109026</Id>
 					<Name><![CDATA[statAverateQueueLength]]></Name>
-					<X>70</X><Y>230</Y>
+					<X>70</X><Y>290</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5474,7 +5503,7 @@ dsAverageWaitingTime.add(statAverateWaitingTime.count(), statAverateWaitingTime.
     			<Statistics>
 					<Id>1664883113543</Id>
 					<Name><![CDATA[statMaximumQueueLength]]></Name>
-					<X>70</X><Y>270</Y>
+					<X>70</X><Y>330</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
