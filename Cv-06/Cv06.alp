@@ -134,7 +134,7 @@
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
+						<Type><![CDATA[long]]></Type>        
 					</Properties>
 				</Variable>
 			</Variables>
@@ -865,9 +865,13 @@
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 						</RecurrenceCode>
-						<Condition><![CDATA[delayTurnstileOutdoor.in.count() % 30 == 0]]></Condition>
+						<Condition><![CDATA[(delayTurnstileOutdoor.in.count() % 30 == 0) && 
+(delayTurnstileOutdoor.in.count() > varCounter)]]></Condition>
 					</Properties>
-					<Action><![CDATA[holdTour.set_initiallyBlocked(true);]]></Action>
+					<Action><![CDATA[holdTour.setBlocked(true);
+varCounter =  delayTurnstileOutdoor.in.count();
+eventClose.restart();
+eventOpen.restart(300);]]></Action>
 				</Event>
 				<Event>
 					<Id>1666693144030</Id>
@@ -898,6 +902,7 @@
 						</RecurrenceCode>
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
+					<Action><![CDATA[holdTour.setBlocked(false);]]></Action>
 				</Event>
 			</Events>
 			<CustomDistributions>
