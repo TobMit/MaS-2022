@@ -1,0 +1,40 @@
+
+	Distribution Summary
+
+Distribution:	Uniform      
+Expression:	UNIF(1.5, 58.5)
+Square Error:	0.127375
+
+Chi Square Test
+  Number of intervals	= 4
+  Degrees of freedom 	= 3
+  Test Statistic     	= 28.3
+  Corresponding p-value	< 0.005
+
+	Data Summary
+
+Number of Data Points	= 30
+Min Data Value       	= 2
+Max Data Value       	= 58
+Sample Mean          	= 15.7
+Sample Std Dev       	= 12.4
+
+	Histogram Summary
+
+Histogram Range    	= 1.5 to 58.5
+Number of Intervals	= 8
+
+
+==================================================================
+Int.   No. of               Probability           Cumulative      
+No.    Data Pts.   x        Density               Distribution    
+------------------------------------------------------------------
+                            Data   Function       Data   Function   
+   0     9       5.00      0.300      0.123      0.300      0.123
+   1    10       12.0      0.333      0.123      0.633      0.246
+   2     6       19.0      0.200      0.123      0.833      0.368
+   3     2       26.0     0.0667      0.123      0.900      0.491
+   4     1       33.0     0.0333      0.123      0.933      0.614
+   5     1       40.0     0.0333      0.123      0.967      0.737
+   6     0       47.0      0.000      0.123      0.967      0.860
+   7     1       54.5     0.0333      0.140       1.00       1.00
