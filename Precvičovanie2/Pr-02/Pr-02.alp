@@ -617,7 +617,7 @@ return casTankovania;]]></Body>
 											<Name><![CDATA[parCakaniePredStojanom]]></Name>
 										</Parameter>
 										<Parameter>
-											<Name><![CDATA[parCakaniePredStojanom1]]></Name>
+											<Name><![CDATA[parCakaniePredPokladnov]]></Name>
 										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
