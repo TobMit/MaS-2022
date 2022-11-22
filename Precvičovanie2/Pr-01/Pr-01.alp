@@ -127,21 +127,6 @@
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
-					<Id>1668964171799</Id>
-					<Name><![CDATA[varPocetPrichodov]]></Name>
-					<X>770</X><Y>50</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[int]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</InitialValue>
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
 					<Id>1668972478141</Id>
 					<Name><![CDATA[varPredcasnyOdchod]]></Name>
 					<X>770</X><Y>80</Y>
@@ -1239,9 +1224,6 @@ return dlzkaCakania;]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[varPocetPrichodov++;]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
@@ -3326,7 +3308,7 @@ stat3Priehradka2.add(root.rpPriehradka2.utilization());
 stat3Priehradka3.add(root.rpPriehradka3.utilization());
 stat3Priehradka4.add(root.rpPriehradka4.utilization());
 
-stat1.add((root.varPredcasnyOdchod*100)/root.varPocetPrichodov);
+stat1.add((root.varPredcasnyOdchod*100)/root.sourceArrival.count());
 stat2.add(root.statCakanieVRade.mean());
 stat4.add(root.statDlzkaRadu.mean());
 stat5.add((root.varPocetSpokojnychZakaznikov*100)/root.varPocetObsluzenych);
