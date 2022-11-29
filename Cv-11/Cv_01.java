@@ -4,7 +4,7 @@ public class Cv_01 {
     private static double nakupnaCena = 0.6;
     private static double cenaPredaja = 0.89;
     private static double cenaVratenia = 0;
-    private static double velkostobjednavky = 80;
+    private static double velkostobjednavky = 90;
     private static double pocetPredanych = 0;
 
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class Cv_01 {
         for (int i = 0; i < n; i++) {
             nakupnaCena = uniform.sample();
             cenaVratenia = nakupnaCena/2;
-            double dopyt = triangularRNG.sample();
+            double dopyt = triangularRNG.sample().intValue();
             pocetPredanych = Math.min(velkostobjednavky, dopyt);
             m += spocitajZisk();
         }
@@ -24,6 +24,6 @@ public class Cv_01 {
     }
 
     private static double spocitajZisk() {
-        return cenaPredaja * pocetPredanych + (cenaVratenia * (velkostobjednavky - pocetPredanych)) - (nakupnaCena * pocetPredanych);
+        return cenaPredaja * pocetPredanych + (cenaVratenia * (velkostobjednavky - pocetPredanych)) - (nakupnaCena * velkostobjednavky);
     }
 }
