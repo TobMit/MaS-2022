@@ -113,7 +113,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1668785449294</Id>
 					<Name><![CDATA[varZvyšeniVstupnehoToku]]></Name>
-					<X>540</X><Y>270</Y>
+					<X>540</X><Y>280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5075,7 +5075,8 @@ statDlzkaRaduPredMasom.add(varDlzkaRaduPredMasom, time());]]></Code>
 							<Name><![CDATA[onEnterDelay]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[statDlzkaRaduPriPokladni.add(self.queueSize(), time());
-agent.parCasObsluzeniaPriPokladni = time();]]></Code>
+agent.parCasObsluzeniaPriPokladni = time();
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5084,7 +5085,8 @@ agent.parCasObsluzeniaPriPokladni = time();]]></Code>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[statCasObsluženiaPriPokladni.add(time() - agent.parCasObsluzeniaPriPokladni);]]></Code>
+								<Code><![CDATA[statCasObsluženiaPriPokladni.add(time() - agent.parCasObsluzeniaPriPokladni);
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5701,6 +5703,68 @@ agent.parCasObsluzeniaPriPokladni = time();]]></Code>
 					<Z>0</Z>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
+			<Presentation>
+    			<BarChart>
+					<Id>1669988349791</Id>
+					<Name><![CDATA[chart]]></Name>
+					<X>40</X><Y>440</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>290</Width>
+					<Height>250</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>90</XOffset>
+						<YOffset>30</YOffset>
+						<Width>170</Width>
+						<Height>160</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>0</Id>
+					<Expression><![CDATA[rpPokladňa.utilization()*100]]></Expression>
+					<Color>-10496</Color>
+					<Expression2Flag>true</Expression2Flag>
+						<Title><![CDATA[VytazeniePokladnicky[%]]]></Title>
+					</DataItem>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[100]]></ScaleToExpression>
+					<ScaleType>FIXED</ScaleType>
+					<Bars>
+						<Direction>UP</Direction>
+						<RelativeWidth>0.8</RelativeWidth>
+					</Bars>
+    			</BarChart>
+			</Presentation>
 
 				</Level>
 			</Presentation>
@@ -6029,7 +6093,7 @@ return 3; // bez]]></Body>
 	<TimeAccuracy>1.0E-5</TimeAccuracy>
 	<Frame>
 		<Width>1630</Width>
-		<Height>500</Height>
+		<Height>700</Height>
 	</Frame>
 	<Database>
 		<Logging>false</Logging>
@@ -6132,8 +6196,17 @@ return 3; // bez]]></Body>
 			<MaximumMemory>512</MaximumMemory>
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-			<AfterSimulationRunCode><![CDATA[statPocLudi.add(root.sourceArrival.count());
-statCelkovyCasVSysteme.add(root.statCelkovyCasVSystéme.mean());]]></AfterSimulationRunCode>
+			<AfterSimulationRunCode><![CDATA[statPocLudiDoSys.add(root.sourceArrival.count());
+statCelkovyCasVSysteme.add(root.statCelkovyCasVSystéme.mean());
+statCasObsluženiaPriPokladni.add(root.statCasObsluženiaPriPokladni.mean());
+statCasObsluženiaPriMase.add(root.statCasObsluženiaPriMase.mean());
+statCasObsluženiaPriRožkoch.add(root.statCasObsluženiaPriRožkoch.mean());
+statDlzkaRaduPredRoskami.add(root.statDlzkaRaduPredRoskami.mean());
+statDlzkaRaduPriPokladni.add(root.statDlzkaRaduPriPokladni.mean());
+statDlzkaRaduPredMasom.add(root.statDlzkaRaduPredMasom.mean());
+statVytazeniePokladnicky.add(root.rpPokladňa.utilization());
+statVytazenieMesovehoPultu.add(root.rpMesovyPult.utilization());
+statVytazeniePultuSPecivom.add(root.rpRozky.utilization());]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
@@ -6141,7 +6214,7 @@ statCelkovyCasVSysteme.add(root.statCelkovyCasVSystéme.mean());]]></AfterSimula
 			<AnalysisData>
     			<Statistics>
 					<Id>1669229372950</Id>
-					<Name><![CDATA[statPocLudi]]></Name>
+					<Name><![CDATA[statPocLudiDoSys]]></Name>
 					<X>30</X><Y>30</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -6171,6 +6244,195 @@ statCelkovyCasVSysteme.add(root.statCelkovyCasVSystéme.mean());]]></AfterSimula
 					<AutoUpdate>true</AutoUpdate>
 					<OccurrenceAtTime>true</OccurrenceAtTime>
 					<OccurrenceDate>1669276800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669986688502</Id>
+					<Name><![CDATA[statCasObsluženiaPriPokladni]]></Name>
+					<X>30</X><Y>90</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1668844800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669986688512</Id>
+					<Name><![CDATA[statCasObsluženiaPriMase]]></Name>
+					<X>30</X><Y>130</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1668844800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669986688519</Id>
+					<Name><![CDATA[statCasObsluženiaPriRožkoch]]></Name>
+					<X>30</X><Y>170</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1668844800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669986786781</Id>
+					<Name><![CDATA[statDlzkaRaduPriPokladni]]></Name>
+					<X>40</X><Y>460</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1669276800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669986786803</Id>
+					<Name><![CDATA[statDlzkaRaduPredMasom]]></Name>
+					<X>40</X><Y>420</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669986786809</Id>
+					<Name><![CDATA[statDlzkaRaduPredRoskami]]></Name>
+					<X>40</X><Y>390</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669988739234</Id>
+					<Name><![CDATA[statVytazeniePokladnicky]]></Name>
+					<X>30</X><Y>200</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669988780913</Id>
+					<Name><![CDATA[statVytazenieMesovehoPultu]]></Name>
+					<X>30</X><Y>230</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Discrete>true</Discrete>
+				</Statistics>
+    			<Statistics>
+					<Id>1669988800951</Id>
+					<Name><![CDATA[statVytazeniePultuSPecivom]]></Name>
+					<X>30</X><Y>260</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
 					<OccurrenceTime Class="CodeUnitValue">
 						<Code><![CDATA[0]]></Code>
 						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
