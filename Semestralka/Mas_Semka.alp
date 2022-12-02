@@ -6206,7 +6206,11 @@ statDlzkaRaduPriPokladni.add(root.statDlzkaRaduPriPokladni.mean());
 statDlzkaRaduPredMasom.add(root.statDlzkaRaduPredMasom.mean());
 statVytazeniePokladnicky.add(root.rpPokladňa.utilization());
 statVytazenieMesovehoPultu.add(root.rpMesovyPult.utilization());
-statVytazeniePultuSPecivom.add(root.rpRozky.utilization());]]></AfterSimulationRunCode>
+statVytazeniePultuSPecivom.add(root.rpRozky.utilization());
+
+dsVytazeniePokladnicky.add(statVytazeniePokladnicky.count(), statVytazeniePokladnicky.mean()*100);
+dsVytazenieMesovehoPultu.add(statVytazenieMesovehoPultu.count(), statVytazenieMesovehoPultu.mean()*100);
+dsVytazeniePultuSPecivom.add(statVytazeniePultuSPecivom.count(), statVytazeniePultuSPecivom.mean()*100);]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
@@ -6443,6 +6447,72 @@ statVytazeniePultuSPecivom.add(root.rpRozky.utilization());]]></AfterSimulationR
 					</RecurrenceCode>
 					<Discrete>true</Discrete>
 				</Statistics>
+    			<DataSet>
+					<Id>1669989316320</Id>
+					<Name><![CDATA[dsVytazeniePokladnicky]]></Name>
+					<X>500</X><Y>70</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>false</FreezeXAxis>
+					<SamplesToKeep>1000</SamplesToKeep>
+				</DataSet>
+    			<DataSet>
+					<Id>1669989358648</Id>
+					<Name><![CDATA[dsVytazenieMesovehoPultu]]></Name>
+					<X>500</X><Y>90</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>false</FreezeXAxis>
+					<SamplesToKeep>1000</SamplesToKeep>
+				</DataSet>
+    			<DataSet>
+					<Id>1669989371433</Id>
+					<Name><![CDATA[dsVytazeniePultuSPecivom]]></Name>
+					<X>500</X><Y>110</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>false</FreezeXAxis>
+					<SamplesToKeep>1000</SamplesToKeep>
+				</DataSet>
 			</AnalysisData>
 
 			<Presentation>
@@ -6467,6 +6537,94 @@ statVytazeniePultuSPecivom.add(root.rpRozky.utilization());]]></AfterSimulationR
 						<LabelText><![CDATA[run]]></LabelText>
 					</ExtendedProperties>
 				</Control>
+    			<Plot>
+					<Id>1669989194659</Id>
+					<Name><![CDATA[plot]]></Name>
+					<X>370</X><Y>150</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1670054400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>480</Width>
+					<Height>340</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>400</Width>
+						<Height>230</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>50</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[100]]></VerScaleToExpression>
+					<VerScaleType>FIXED</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Vytazenie pokladnicky]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[dsVytazeniePokladnicky]]></Expression>
+					<Color>-10496</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Vytazenie mesovehoPultu]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[dsVytazenieMesovehoPultu]]></Expression>
+					<Color>-16181</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[Vytazenie pultu s pecivom]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[dsVytazeniePultuSPecivom]]></Expression>
+					<Color>-8388608</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<HorScaleFromExpression><![CDATA[0]]></HorScaleFromExpression>
+					<HorScaleToExpression><![CDATA[1000]]></HorScaleToExpression>
+					<HorScaleType>FIXED</HorScaleType>
+    			</Plot>
 			</Presentation>
 
 			<AllowParallelEvaluations>true</AllowParallelEvaluations>
