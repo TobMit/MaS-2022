@@ -9005,7 +9005,7 @@ agent.parCasObsluzeniaPriPokladni = time();
 					<AutoScale>true</AutoScale>
 					<Scale>1.0</Scale>
 					<Rotation>270.0</Rotation>
-					<AxisOrder>YZX_AXIS_ORDER</AxisOrder>
+					<AxisOrder>XYZ_AXIS_ORDER</AxisOrder>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
