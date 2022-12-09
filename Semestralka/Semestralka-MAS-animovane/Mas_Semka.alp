@@ -11438,17 +11438,17 @@ agent.parCasObsluzeniaPriPokladni = time();
 				</RectangleNode>
 				<Control Type="Window3D">
 					<Id>1670068976201</Id>
-					<Name><![CDATA[window3d]]></Name>
-					<X>689</X><Y>-358</Y>
-					<Width>646</Width>
-					<Height>345</Height>
+					<Name><![CDATA[w3dObchod]]></Name>
+					<X>689</X><Y>-560</Y>
+					<Width>971</Width>
+					<Height>547</Height>
 					<MakeDefaultViewArea>true</MakeDefaultViewArea>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
 					<FollowCamera>false</FollowCamera>
 					<NavigationType>full</NavigationType>
 					<FarClippingDistance>2000</FarClippingDistance>
-					<Camera>camera</Camera>
+					<Camera>cameraObchod</Camera>
 				</Control>
 				<Network>
 					<Id>1670066165294</Id>
@@ -12635,7 +12635,7 @@ agent.parCasObsluzeniaPriPokladni = time();
 				</RectangleNode>
 				<Camera3D>
 					<Id>1670068955703</Id>
-					<Name><![CDATA[camera]]></Name>
+					<Name><![CDATA[cameraObchod]]></Name>
 					<X>520</X><Y>-95</Y><Z>100</Z>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
@@ -16051,6 +16051,75 @@ agent.parCasObsluzeniaPriPokladni = time();
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 				</Figure3D>
+				<Camera3D>
+					<Id>1670577415144</Id>
+					<Name><![CDATA[cameraPokladna]]></Name>
+					<X>310</X><Y>-90</Y><Z>100</Z>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ShowLabel>false</ShowLabel>
+					<RotationX>45.0</RotationX>
+					<RotationZ>270.0</RotationZ>
+				</Camera3D>
+				<Camera3D>
+					<Id>1670577450014</Id>
+					<Name><![CDATA[cameraMaso]]></Name>
+					<X>380</X><Y>-280</Y><Z>100</Z>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ShowLabel>false</ShowLabel>
+					<RotationX>26.0</RotationX>
+					<RotationZ>210.0</RotationZ>
+				</Camera3D>
+				<Camera3D>
+					<Id>1670577469576</Id>
+					<Name><![CDATA[cameraRozky]]></Name>
+					<X>450</X><Y>-270</Y><Z>100</Z>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ShowLabel>false</ShowLabel>
+					<RotationX>20.0</RotationX>
+					<RotationZ>-45.0</RotationZ>
+				</Camera3D>
+				<Control Type="Window3D">
+					<Id>1670577492192</Id>
+					<Name><![CDATA[w3dPokladna]]></Name>
+					<X>40</X><Y>-940</Y>
+					<Width>580</Width>
+					<Height>360</Height>
+					<MakeDefaultViewArea>true</MakeDefaultViewArea>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ShowLabel>false</ShowLabel>
+					<FollowCamera>false</FollowCamera>
+					<NavigationType>full</NavigationType>
+					<FarClippingDistance>2000</FarClippingDistance>
+					<Camera>cameraPokladna</Camera>
+				</Control>
+				<Control Type="Window3D">
+					<Id>1670577539520</Id>
+					<Name><![CDATA[w3dMaso]]></Name>
+					<X>640</X><Y>-940</Y>
+					<Width>640</Width>
+					<Height>360</Height>
+					<MakeDefaultViewArea>true</MakeDefaultViewArea>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ShowLabel>false</ShowLabel>
+					<FollowCamera>false</FollowCamera>
+					<NavigationType>full</NavigationType>
+					<FarClippingDistance>2000</FarClippingDistance>
+					<Camera>cameraMaso</Camera>
+				</Control>
+				<Control Type="Window3D">
+					<Id>1670577604521</Id>
+					<Name><![CDATA[w3dRozky]]></Name>
+					<X>1300</X><Y>-940</Y>
+					<Width>640</Width>
+					<Height>360</Height>
+					<MakeDefaultViewArea>true</MakeDefaultViewArea>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<ShowLabel>false</ShowLabel>
+					<FollowCamera>false</FollowCamera>
+					<NavigationType>full</NavigationType>
+					<FarClippingDistance>2000</FarClippingDistance>
+					<Camera>cameraRozky</Camera>
+				</Control>
 			</Presentation>
 
 				</Level>
