@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Pr_4_1 {
     private static final int pocetKrokov = 1000;
-    private static final int pocetReplikacii = 1000000;
+    private static final int pocetReplikacii = 100000;
     public static void main(String[] args) {
         double priemernaVzdialenost = 0;
         // ich knižnica je strašne pomalá
@@ -17,11 +17,12 @@ public class Pr_4_1 {
                 } else {
                     vzdialenostOdStredu--;
                 }
-                priemernaVzdialenost += vzdialenostOdStredu;
             }
+            priemernaVzdialenost += Math.abs(vzdialenostOdStredu);
 
         }
         double ohadKrokov = Math.sqrt((2*pocetKrokov)/(Math.PI));
+
         System.out.println("Priemerna vzdialenost je: " + priemernaVzdialenost / pocetReplikacii + " teoretická vzdialenost je: " + ohadKrokov);
     }
 }
