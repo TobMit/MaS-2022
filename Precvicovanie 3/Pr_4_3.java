@@ -1,6 +1,6 @@
 import OSPRNG.UniformContinuousRNG;
 
-public class Pr_4_2 {
+public class Pr_4_3 {
     private static final int pocetKrokov = 1000;
     private static final int pocetReplikacii = 100000;
     public static void main(String[] args) {
@@ -25,16 +25,16 @@ public class Pr_4_2 {
                         vzdialenostOdStreduY--;
                     }
                 }
+                priemernaVzdialenostX += Math.abs(vzdialenostOdStreduX);
+                priemernaVzdialenostY += Math.abs(vzdialenostOdStreduY);
             }
-            priemernaVzdialenostX += Math.abs(vzdialenostOdStreduX);
-            priemernaVzdialenostY += Math.abs(vzdialenostOdStreduY);
 
         }
         //Math.sqrt((Math.pow(first - druhyBod.first, 2 )) + (Math.pow(second - druhyBod.second, 2)));
         priemernaVzdialenostX /= pocetReplikacii;
         priemernaVzdialenostY /= pocetReplikacii;
-        double priemernaVzdialenost = priemernaVzdialenostX + priemernaVzdialenostY;
+        double priemernaVzdialenost = Math.sqrt(Math.pow(priemernaVzdialenostX - 0, 2) + Math.pow(priemernaVzdialenostY - 0,2));
         double ohadKrokov = Math.sqrt((4*pocetKrokov)/(Math.PI));
-        System.out.println("Priemerna vzdialenost je: " + priemernaVzdialenost + " teoretická vzdialenost je: " + ohadKrokov);
+        System.out.println("Priemerna vzdialenost je: " + priemernaVzdialenost / pocetReplikacii + " teoretická vzdialenost je: " + ohadKrokov);
     }
 }
