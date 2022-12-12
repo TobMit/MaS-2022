@@ -19,7 +19,7 @@ public class Pr_3 {
             if ((Math.pow(x - xKruhu, 2) + Math.pow(y - yKruhu, 2)) <= Math.pow(r, 2)) {
                 pocetPadnutych++;
             }
-            //String tmp = String.format("%.6f", Math.PI);
+
         }
         System.out.println(Math.PI);
         //String tmp = String.format("%.6f", Math.PI);
