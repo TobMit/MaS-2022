@@ -31,6 +31,6 @@ public class Pr_5_a {
                 }
             }
         }
-        System.out.println("Pravdepodobnost ze majú pravdu 2: " + pocetZeSaZhodliDveAPravda/pocetZeSaZhodliDve + " pravdepodbnost ze maju pravdu 3: " + pocetZeSaZhodliTriAPravda/pocetZeSaZhodliTri);
+        System.out.println("Pravdepodobnost ze majú pravdu 2: " + pocetZeSaZhodliDveAPravda/pocetZeSaZhodliDve * 100 + " pravdepodbnost ze maju pravdu 3: " + pocetZeSaZhodliTriAPravda/pocetZeSaZhodliTri * 100);
     }
 }
