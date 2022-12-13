@@ -16,28 +16,23 @@ public class Pr_9 {
             cena[i] = 0.0;
         }
         for (int i = 0; i < pocetOpakovani; i++) {
-
+            double aktCena = cenaLetenky;
             double naplnenie = 27;
             double zlava = 0;
             for (int j = 0; j < 6; j++) {
                 naplnenie += naplnenieLetiska.sample();
                 if (naplnenie >= maxNaplnenostLetiska) {
-                    double prepocitanaZlava = (100 - zlava) / 100;
-                    double tmpCena = cenaLetenky * prepocitanaZlava;
-                    tmpCena *= 1.30;
-                    cena[j] += tmpCena;
+                    cena[j] += aktCena + aktCena * 0.30;;
                 }  else {
-                    zlava += klesanieCien.sample();
-                    double prepocitanaZlava = (100 - zlava) / 100;
-                    double tmpCena = cenaLetenky * prepocitanaZlava;
-                    cena[j] += tmpCena;
+                    aktCena -= ((aktCena/100)*klesanieCien.sample());
+                    cena[j] += aktCena;
                 }
 
             }
 
         }
         for (int i = 0; i < cena.length; i++) {
-            System.out.println("Den " + i + ". a cena je: " + cena[i]/pocetOpakovani + "€");
+            System.out.println("Den " + (i+1) + ". a cena je: " + cena[i]/pocetOpakovani + "€");
         }
         //System.out.println("Cestovatel by mal kupovat lentenku v " + priemernyDen / pocetOpakovani + " za " + priemernaCena / pocetOpakovani);
     }
