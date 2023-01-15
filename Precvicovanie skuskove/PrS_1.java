@@ -1,7 +1,7 @@
 import OSPRNG.TriangularRNG;
 import OSPRNG.UniformContinuousRNG;
 
-public class Pr_1 {
+public class PrS_1 {
     private static final int pocetReplikaci = 100;
     private static double  prPokazeniaCon = 0.15;
     public static void main(String[] args) {
